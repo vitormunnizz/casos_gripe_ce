@@ -75,7 +75,7 @@ try:
     # Substituindo Valores Nulos nas Colunas numéricas por 0
     df[df.select_dtypes(include=['number']).columns] = df.select_dtypes(
         include=['number']).fillna(0)
-    
+
     # Substituindo Valores Nulos nas Colunas de Tipo Objeto por "Indefinido"
     df[df.select_dtypes(include=['object']).columns] = df.select_dtypes(
         include=['object']).fillna("Indefinido")
@@ -112,7 +112,8 @@ try:
         df_filtrado_Epidemiologicos = df_filtrado_regional[colunas_para_manter]
 
         # Contar as ocorrências de cada valor em 'ID_MUNICIP'
-        municipios_count = df_filtrado_Epidemiologicos['ID_MUNICIP'].value_counts()
+        municipios_count = df_filtrado_Epidemiologicos['ID_MUNICIP'].value_counts(
+        )
 
         # Definindo as faixas etárias Jovens (0-19), Adultos (20-59), Idosos (60+)
         bins = [0, 19, 59, 150]
@@ -128,16 +129,16 @@ try:
         fig, ax = plt.subplots(figsize=(12, 6))
         municipios_count.plot(kind='bar', color='#377eb8', ax=ax)
 
-        fig.patch.set_alpha(0) 
+        fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Casos de Gripe por Município', fontsize=16, color='white')
+        ax.set_title('Casos de Gripe por Município',
+                     fontsize=16, color='white')
         ax.set_xlabel('Município', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(municipios_count.index, rotation=20, color='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
-
 
         st.pyplot(fig)
 
@@ -151,20 +152,22 @@ try:
         })
 
         st.write('Taxa de incidência por habitantes')
-        
+
         # Criando o gráfico ('Taxa de incidência por habitantes')
         fig, ax = plt.subplots(figsize=(12, 6))
         ax.bar(municipios, incid_hab, color='#377eb8')
 
-        fig.patch.set_alpha(0)  
+        fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
         # Configurar títulos e rótulos
-        ax.set_title('Taxa de incidência por habitantes.', fontsize=16, color='white')
+        ax.set_title('Taxa de incidência por habitantes.',
+                     fontsize=16, color='white')
         ax.set_xlabel('Município', fontsize=12, color='white')
         ax.set_ylabel('Incidência por Habitante', fontsize=12, color='white')
-        ax.tick_params(axis='x', rotation=20, colors='white')  # Rotacionar os rótulos do eixo x
-        ax.tick_params(axis='y', colors='white')  # Rotacionar os rótulos do eixo x
+        # Rotacionar os rótulos do eixo x
+        ax.tick_params(axis='x', rotation=20, colors='white')
+        ax.tick_params(axis='y', colors='white')
 
         # Exibir o gráfico no Streamlit
         st.pyplot(fig)
@@ -173,20 +176,21 @@ try:
 
         # Criando gráfico (Casos de Gripe por Sexo e Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_Epidemiologicos, 
-                    x='ID_MUNICIP', hue='CS_SEXO', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_Epidemiologicos,
+                      x='ID_MUNICIP', hue='CS_SEXO', palette='Set1', ax=ax)
 
-        fig.patch.set_alpha(0)  
-        ax.set_facecolor('none')  
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
 
-        ax.set_title('Casos de Gripe por Sexo e Local da Residência', fontsize=16, color='white')
+        ax.set_title('Casos de Gripe por Sexo e Local da Residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Sexo', frameon=False, fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.legend(title='Sexo', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
-
 
         st.pyplot(fig)
 
@@ -194,17 +198,19 @@ try:
 
         # Criando o gráfico (Casos de Gripe por Faixa Etária e Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_Epidemiologicos, 
-                    x='ID_MUNICIP', hue='FAIXA_ETARIA', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_Epidemiologicos,
+                      x='ID_MUNICIP', hue='FAIXA_ETARIA', palette='Set1', ax=ax)
 
-        fig.patch.set_alpha(0)  
+        fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Casos de Gripe por Faixa Etária e Local da Residência', fontsize=16, color='white')
+        ax.set_title('Casos de Gripe por Faixa Etária e Local da Residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Faixa Etária', frameon=False, fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.legend(title='Faixa Etária', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
@@ -214,17 +220,19 @@ try:
 
         # Criando o gráfico (Vacinação por local da residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_Epidemiologicos, 
-                    x='ID_MUNICIP', hue='VACINA', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_Epidemiologicos,
+                      x='ID_MUNICIP', hue='VACINA', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Vacinação por local da residência', fontsize=16, color='white')
+        ax.set_title('Vacinação por local da residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
         ax.set_ylabel('Quantidade Pessoas Vacidas', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Vacinação', frameon=False, fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.legend(title='Vacinação', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
@@ -234,17 +242,19 @@ try:
 
         # Criando o gráfico (Vacinação de COVID por local da residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_Epidemiologicos, 
-                    x='ID_MUNICIP', hue='VACINA_COV', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_Epidemiologicos,
+                      x='ID_MUNICIP', hue='VACINA_COV', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Vacinação de COVID por local da residência', fontsize=16, color='white')
+        ax.set_title('Vacinação de COVID por local da residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
         ax.set_ylabel('Quantidade Pessoas Vacidas contra COVID', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Vacinação contra COVID', frameon=False, fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.legend(title='Vacinação contra COVID', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
@@ -257,13 +267,14 @@ try:
 
         # Criando gráfico (Casos de Gripe por Semana Epidemiológica Cruz (1 até 52))
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_cruz, 
-                    x='ID_MUNICIP', hue='SEM_PRI', palette='Set1', ax=ax, legend=False)
+        sns.countplot(data=df_cruz,
+                      x='ID_MUNICIP', hue='SEM_PRI', palette='Set1', ax=ax, legend=False)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Casos de Gripe por Semana Epidemiológica Cruz (1 até 52)', fontsize=16, color='white')
+        ax.set_title('Casos de Gripe por Semana Epidemiológica Cruz (1 até 52)',
+                     fontsize=16, color='white')
         ax.set_xlabel('Semana Epidemiológica', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
@@ -279,19 +290,19 @@ try:
 
         # Criando gráfico (Casos de Gripe por Semana Epidemiológica (1 até 52))
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_belacruz, 
-                    x='ID_MUNICIP', hue='SEM_PRI', palette='Set1', ax=ax, legend=False)
+        sns.countplot(data=df_belacruz,
+                      x='ID_MUNICIP', hue='SEM_PRI', palette='Set1', ax=ax, legend=False)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Casos de Gripe por Semana Epidemiológica Bela Cruz (1 até 52)', fontsize=16, color='white')
+        ax.set_title('Casos de Gripe por Semana Epidemiológica Bela Cruz (1 até 52)',
+                     fontsize=16, color='white')
         ax.set_xlabel('Semana Epidemiológica', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
-
 
         st.pyplot(fig)
 
@@ -302,13 +313,14 @@ try:
 
         # Criando gráfico (Casos de Gripe por Semana Epidemiológica (1 até 52))
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_acarau, 
-                    x='ID_MUNICIP', hue='SEM_PRI', palette='Set1', ax=ax, legend=False)
+        sns.countplot(data=df_acarau,
+                      x='ID_MUNICIP', hue='SEM_PRI', palette='Set1', ax=ax, legend=False)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Casos de Gripe por Semana Epidemiológica Acaraú (1 até 52)', fontsize=16, color='white')
+        ax.set_title('Casos de Gripe por Semana Epidemiológica Acaraú (1 até 52)',
+                     fontsize=16, color='white')
         ax.set_xlabel('Semana Epidemiológica', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
@@ -317,14 +329,9 @@ try:
 
         st.pyplot(fig)
 
+    if st.checkbox("Exibir Indicadores Vigilância Laboratorial"):
 
-
-
-
-    # Filtro de "Clínicos e Assistenciais"
-    if st.checkbox("Exibir Indicadores Vigilância Laboratorial"):   
-
-        # Lista de colunas a manter para Vigilância Laboratorial 
+        # Lista de colunas a manter para Vigilância Laboratorial
         colunas_para_manter = [
             'ID_MUNICIP', 'AMOSTRA', 'PCR_RESUL', 'RES_AN',
             'DT_COLETA', 'DT_PCR', 'DT_RES_AN'
@@ -339,7 +346,8 @@ try:
             df_filtrado_vig_lab['DT_PCR'], errors='coerce', format='%d/%m/%Y')
 
         # Subtração das datas
-        df_filtrado_vig_lab['DIFERENCA'] = df_filtrado_vig_lab['DT_PCR'] - df_filtrado_vig_lab['DT_COLETA']
+        df_filtrado_vig_lab['DIFERENCA'] = df_filtrado_vig_lab['DT_PCR'] - \
+            df_filtrado_vig_lab['DT_COLETA']
 
         df_filtrado_vig_lab['DIFERENCA'] = df_filtrado_vig_lab['DIFERENCA'].dt.days
 
@@ -352,7 +360,8 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Testes Realizados por Município', fontsize=16, color='white')
+        ax.set_title('Testes Realizados por Município',
+                     fontsize=16, color='white')
         ax.set_xlabel('Município', color='white')
         ax.set_ylabel('Quantidade de Casos', color='white')
         ax.set_xticklabels(municipios_count.index, rotation=20, color='white')
@@ -365,18 +374,19 @@ try:
 
         # Criando gráfico (Resultado do Teste de RT-PCR por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vig_lab, 
-                    x='ID_MUNICIP', hue='PCR_RESUL', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_vig_lab,
+                      x='ID_MUNICIP', hue='PCR_RESUL', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Resultado do Teste de RT-PCR por Local da Residência', fontsize=16, color='white')
+        ax.set_title('Resultado do Teste de RT-PCR por Local da Residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
         ax.set_ylabel('Quantidade de Teste de RT-PCR', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Resultado do Teste de RT-PCR', frameon=False, fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
-
+        ax.legend(title='Resultado do Teste de RT-PCR', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
@@ -386,23 +396,26 @@ try:
 
         # Criando gráfico (Resultado do Teste Antigênico por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vig_lab, 
-                    x='ID_MUNICIP', hue='RES_AN', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_vig_lab,
+                      x='ID_MUNICIP', hue='RES_AN', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Resultado do Teste Antigênico por Local da Residência', fontsize=16, color='white')
+        ax.set_title('Resultado do Teste Antigênico por Local da Residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
         ax.set_ylabel('Quantidade de Teste de Antigênico', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Resultado do Teste de Antigênico', frameon=False, fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.legend(title='Resultado do Teste de Antigênico', frameon=False,
+                  fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
         st.pyplot(fig)
 
-        diferenca_coleta_PCR = df_filtrado_vig_lab.groupby('ID_MUNICIP')['DIFERENCA'].mean().round()
+        diferenca_coleta_PCR = df_filtrado_vig_lab.groupby(
+            'ID_MUNICIP')['DIFERENCA'].mean().round()
 
         st.write('Tempo Médio entre Coleta e Resultado')
 
@@ -413,17 +426,135 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_title('Tempo Médio entre Coleta e Resultado', fontsize=16, color='white')
+        ax.set_title('Tempo Médio entre Coleta e Resultado',
+                     fontsize=16, color='white')
         ax.set_xlabel('Município', color='white')
         ax.set_ylabel('Diferença de Dias', color='white')
-        ax.set_xticklabels(diferenca_coleta_PCR.index, rotation=20, color='white')
+        ax.set_xticklabels(diferenca_coleta_PCR.index,
+                           rotation=20, color='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
         st.pyplot(fig)
 
+    # Filtro de "Mortalidade"
+    if st.checkbox("Exibir Indicadores de Mortalidade"):
+
+        # Lista de colunas a manter para Mortalidade
+        colunas_para_manter = [
+            'ID_MUNICIP', 'CLASSI_FIN', 'EVOLUCAO'
+        ]
+
+        df_filtrado_mortalidade = df_filtrado_regional[colunas_para_manter]
+
+        st.write('Desfechos Clínicos por Local da Residência')
+
+        # Criando gráfico (Desfechos Clínicos por Local da Residência)
+        fig, ax = plt.subplots(figsize=(12, 6))
+        sns.countplot(data=df_filtrado_mortalidade,
+                      x='ID_MUNICIP', hue='EVOLUCAO', palette='Set1', ax=ax)
+
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
+
+        ax.set_title('Desfechos Clínicos por Local da Residência',
+                     fontsize=16, color='white')
+        ax.set_xlabel('Local da Residência (Cidade)', color='white')
+        ax.set_ylabel('Quantidade de Cura, Óbito...', color='white')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
+        ax.legend(title='Desfechos Clínicos', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+
+        st.pyplot(fig)
+
+        st.write('Número de óbitos Confirmados')
+
+        # Filtrar dados de óbitos
+        obito = df_filtrado_mortalidade.loc[
+            (df_filtrado_mortalidade['EVOLUCAO'] == 'Óbito') |
+            (df_filtrado_mortalidade['EVOLUCAO'] == 'Óbito por outras causas')
+        ]
+        st.write(obito)
+
     # Filtro de "Clínicos e Assistenciais"
-    if st.checkbox("Exibir Indicadores Clínicos e Assistenciais"):
+    if st.checkbox("Exibir Indicadores de Hospitalização e UTI"):
+
+        # Lista de colunas a manter para Clínicos e Assistenciais
+        colunas_para_manter = [
+            'ID_MUNICIP', 'HOSPITAL', 'UTI', 'EVOLUCAO'
+        ]
+
+        df_filtrado_clinico_assistencia = df_filtrado_regional[colunas_para_manter]
+
+        st.write('Taxa de hospitalização por Local da Residência')
+
+        # Criando gráfico (Taxa de hospitalização por Local da Residência)
+        fig, ax = plt.subplots(figsize=(12, 6))
+        sns.countplot(data=df_filtrado_clinico_assistencia,
+                      x='ID_MUNICIP', hue='HOSPITAL', palette='Set1', ax=ax)
+
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
+
+        ax.set_title('Taxa de hospitalização por Local da Residência',
+                     fontsize=16, color='white')
+        ax.set_xlabel('Local da Residência (Cidade)', color='white')
+        ax.set_ylabel('Quantidade de hospitalização', color='white')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
+        ax.legend(title='Taxa de hospitalização', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+
+        st.pyplot(fig)
+
+        st.write('Taxa de hospitalização em UTI por Local da Residência')
+
+        # Criando gráfico (Taxa de hospitalização em UTI por Local da Residência)
+        fig, ax = plt.subplots(figsize=(12, 6))
+        sns.countplot(data=df_filtrado_clinico_assistencia,
+                      x='ID_MUNICIP', hue='UTI', palette='Set1', ax=ax)
+
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
+
+        ax.set_title('Taxa de hospitalização em UTI por Local da Residência',
+                     fontsize=16, color='white')
+        ax.set_xlabel('Local da Residência (Cidade)', color='white')
+        ax.set_ylabel('Quantidade de hospitalização em UTI', color='white')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
+        ax.legend(title='Taxa de hospitalização em UTI', frameon=False,
+                  fontsize=12, title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+
+        st.pyplot(fig)
+
+        st.write('Desfechos Clínicos por Local da Residência')
+
+        # Criando gráfico (Desfechos Clínicos por Local da Residência)
+        fig, ax = plt.subplots(figsize=(12, 6))
+        sns.countplot(data=df_filtrado_clinico_assistencia,
+                      x='ID_MUNICIP', hue='EVOLUCAO', palette='Set1', ax=ax)
+
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
+
+        ax.set_title('Desfechos Clínicos por Local da Residência',
+                     fontsize=16, color='white')
+        ax.set_xlabel('Local da Residência (Cidade)', color='white')
+        ax.set_ylabel('Quantidade de Cura, Óbito...', color='white')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
+        ax.legend(title='Desfechos Clínicos', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
+        ax.tick_params(axis='x', colors='white')
+        ax.tick_params(axis='y', colors='white')
+
+        st.pyplot(fig)
+
+    if st.checkbox("Exibir Indicadores de Vacinação e Tempo de Resposta"):
 
         # Lista de colunas a manter para Clínicos e Assistenciais
         colunas_para_manter = [
@@ -436,21 +567,21 @@ try:
 
         # Criando gráfico (Vacinação por local da residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vacinacao_resposta, 
-                x='ID_MUNICIP', hue='VACINA', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_vacinacao_resposta,
+                      x='ID_MUNICIP', hue='VACINA', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        # Definindo as cores para as linhas e legendas
-        ax.set_title('Vacinação por local da residência', fontsize=16, color='white')
+        ax.set_title('Vacinação por local da residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
-        ax.set_ylabel('Quantidade Pessoas Vacinas', color='white')
+        ax.set_ylabel('Quantidade Pessoas Vacidas', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Vacinação', frameon=False, title_fontsize='13', fontsize='11', facecolor='black', edgecolor='white')
+        ax.legend(title='Vacinação', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
-
 
         st.pyplot(fig)
 
@@ -458,33 +589,33 @@ try:
 
         # Criando o gráfico (Vacinação de COVID por local da residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vacinacao_resposta, 
-                x='ID_MUNICIP', hue='VACINA_COV', palette='Set1', ax=ax)
+        sns.countplot(data=df_filtrado_vacinacao_resposta,
+                      x='ID_MUNICIP', hue='VACINA_COV', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        # Definindo as cores para as linhas e legendas
-        ax.set_title('Vacinação de COVID por local da residência', fontsize=16, color='white')
+        ax.set_title('Vacinação de COVID por local da residência',
+                     fontsize=16, color='white')
         ax.set_xlabel('Local da Residência (Cidade)', color='white')
-        ax.set_ylabel('Quantidade Pessoas Vacinas contra COVID', color='white')
+        ax.set_ylabel('Quantidade Pessoas Vacidas contra COVID', color='white')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='white')
-        ax.legend(title='Vacinação contra COVID', frameon=False, title_fontsize='13', fontsize='11', facecolor='black', edgecolor='white')
+        ax.legend(title='Vacinação contra COVID', frameon=False, fontsize=12,
+                  title_fontsize='13', loc='upper right', labelcolor='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
-
         st.pyplot(fig)
 
-            # Converte as colunas para o tipo datetime
+        # Converte as colunas para o tipo datetime
         df_filtrado_vacinacao_resposta['DT_SIN_PRI'] = pd.to_datetime(
-                df_filtrado_vacinacao_resposta['DT_SIN_PRI'], errors='coerce', format='%d/%m/%Y')
+            df_filtrado_vacinacao_resposta['DT_SIN_PRI'], errors='coerce', format='%d/%m/%Y')
         df_filtrado_vacinacao_resposta['DT_NOTIFIC'] = pd.to_datetime(
-                df_filtrado_vacinacao_resposta['DT_NOTIFIC'], errors='coerce', format='%d/%m/%Y')
+            df_filtrado_vacinacao_resposta['DT_NOTIFIC'], errors='coerce', format='%d/%m/%Y')
 
-            # Subtração das datas
+        # Subtração das datas
         df_filtrado_vacinacao_resposta['DIFERENCA'] = df_filtrado_vacinacao_resposta['DT_NOTIFIC'] - \
-                df_filtrado_vacinacao_resposta['DT_SIN_PRI']
+            df_filtrado_vacinacao_resposta['DT_SIN_PRI']
 
         # Converte a diferença para o formato inteiro de dias
         df_filtrado_vacinacao_resposta['DIFERENCA'] = df_filtrado_vacinacao_resposta['DIFERENCA'].dt.days
@@ -498,20 +629,19 @@ try:
         fig, ax = plt.subplots(figsize=(12, 6))
         diferenca_NOTIFIC_SIN_PRI.plot(kind='bar', color='#377eb8', ax=ax)
 
-        fig.patch.set_alpha(0)  
-        ax.set_facecolor('none')    
-            
-        # Definindo as cores para as linhas e legendas
-        ax.set_title('Tempo Médio de Sintomas até a Notificação', fontsize=16, color='white')
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
+
+        ax.set_title('Tempo Médio de Sintomas até a Notificação',
+                     fontsize=16, color='white')
         ax.set_xlabel('Município', color='white')
         ax.set_ylabel('Diferença de Dias', color='white')
-        ax.set_xticklabels(diferenca_NOTIFIC_SIN_PRI.index, rotation=20, color='white')
+        ax.set_xticklabels(diferenca_NOTIFIC_SIN_PRI.index,
+                           rotation=20, color='white')
         ax.tick_params(axis='x', colors='white')
         ax.tick_params(axis='y', colors='white')
 
         st.pyplot(fig)
-
-
 
 except FileNotFoundError:
     st.error(f"O arquivo no caminho '{
