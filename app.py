@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Caminho do arquivo CSV
-file_path = r"C:\Users\vitor\OneDrive\Área de Trabalho\regional\gripe\INFLUD24-CE.csv"
+file_path = "INFLUD24-CE.csv"
 
 try:
     df = pd.read_csv(file_path)
