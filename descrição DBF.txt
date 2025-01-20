@@ -1,0 +1,377 @@
+AMOSTRA: Indica se foi realizado coleta de amostra para realização de teste diagnóstico.
+
+AN_ADENO: Resultado do Teste Antigênico, para Adenovírus.
+
+AN_OUTRO: Resultado do Teste Antigênico, para Outro vírus respiratório.
+
+AN_PARA1: Resultado do Teste Antigênico, para Parainfluenza 1.
+
+AN_PARA2: Resultado do Teste Antigênico, para Parainfluenza 2.
+
+AN_PARA3: Resultado do Teste Antigênico, para Parainfluenza 3.
+
+AN_SARS2: Resultado do Teste Antigênico, para SARS-CoV-2.
+
+AN_VSR: Resultado do Teste Antigênico, para VSR.
+
+ANTIVIRAL: Indica se fez uso de antiviral para tratamento da doença.
+
+AVE_SUINO: Indica se o paciente teve contato direto com aves ou suínos.
+
+CARDIOPATI: Indica se o paciente possui Doença Cardiovascular Crônica.
+
+CLASSI_FIN: Diagnóstico final do caso.
+
+CLASSI_OUT: Descrição de qual outro agente etiológico foi identificado.
+
+CO_LAB_AN: Código do laboratório que realizou o teste antigênico.
+
+CO_LAB_PCR: Laboratório responsável pela liberação do resultado do teste de RT-PCR.
+
+CO_MUN_NOT: Código do município onde está localizada a unidade que realizou a notificação.
+
+CO_MUN_RES: Município de residência do paciente.
+
+CO_MU_INTE: Município de internação do paciente.
+
+CO_PAIS: País de residência do paciente.
+
+CO_REGIONA: Regional de Saúde onde está localizado o município que realizou a notificação.
+
+CO_RG_INTE: Regional de Saúde de Internação do paciente.
+
+CO_RG_RESI: Regional de Saúde do município de residência do paciente.
+
+CO_UNI_NOT: Código da Unidade que realizou o atendimento, coleta de amostra e registro do caso.
+
+CO_UN_INTE: Unidade de Saúde de internação do paciente.
+
+CRITERIO: Indica qual o critério de confirmação.
+
+CS_ESCOL_N: Nível de escolaridade do paciente.
+
+CS_ETINIA: Nome e código da etnia do paciente, quando indígena.
+
+CS_GESTANT: Indica se a paciente é gestante e a idade gestacional.
+
+CS_RACA: Cor ou raça do paciente.
+
+CS_SEXO: Sexo do paciente.
+
+CS_ZONA: Zona geográfica do endereço de residência do paciente.
+
+DESC_RESP: Indica se o paciente apresentou desconforto respiratório.
+
+DIABETES: Indica se o paciente possui Diabetes mellitus.
+
+DIARREIA: Indica se o paciente apresentou diarreia.
+
+DISPNEIA: Indica se o paciente apresentou dispneia.
+
+DOR_ABD: Indica se o paciente apresentou dor abdominal.
+
+DOSE_1_COV: Data em que o paciente recebeu a 1ª dose da vacina COVID-19.
+
+DOSE_2REF: Data em que o paciente recebeu a 2ª dose reforço da vacina COVID-19.
+
+DOSE_2_COV: Data em que o paciente recebeu a 2ª dose da vacina COVID-19.
+
+DOSE_REF: Data em que o paciente recebeu a dose reforço da vacina COVID-19.
+
+DS_AN_OUT: Nome do outro vírus respiratório identificado pelo Teste Antigênico.
+
+DS_PCR_OUT: Nome do outro vírus respiratório identificado pelo RT-PCR.
+
+DT_1_DOSE: Data da 1ª dose para crianças vacinadas pela primeira vez (>= 6 meses e <= 8 anos).
+
+DT_2_DOSE: Data da 2ª dose para crianças vacinadas pela primeira vez (>= 6 meses e <= 8 anos).
+
+DT_ANTIVIR: Data em que foi iniciado o tratamento com o antiviral.
+
+DT_CO_SOR: Data da coleta do material para diagnóstico por Sorologia.
+
+DT_COLETA: Data da coleta da amostra para realização do teste diagnóstico.
+
+DT_DIGITA: Data de inclusão do registro no sistema.
+
+DT_DOSEUNI: Data da dose única para crianças vacinadas em campanhas de anos anteriores (>= 6 meses e <= 8 anos).
+
+DT_ENCERRA: Data do encerramento do caso.
+
+DT_ENTUTI: Data de entrada do paciente na unidade de Terapia intensiva (UTI).
+
+DT_EVOLUCA: Data da alta ou óbito do paciente.
+
+DT_INTERNA: Data da internação por SRAG.
+
+DT_NASC: Data de nascimento do paciente.
+
+DT_NOTIFIC: Data de preenchimento da ficha de notificação.
+
+DT_PCR: Data do Resultado RT-PCR/outro método por Biologia Molecular.
+
+DT_RAIOX: Data que foi realizado o RX de Tórax.
+
+DT_RES: Data do Resultado do Teste Sorológico.
+
+DT_RES_AN: Data do resultado do teste antigênico.
+
+DT_SAIDUTI: Data em que o paciente saiu da UTI.
+
+DT_SIN_PRI: Data do início dos sintomas do caso.
+
+DT_TOMO: Data que foi realizada a tomografia.
+
+DT_TRT_COV: Data em que foi iniciado o tratamento com o antiviral, para tratamento de covid-19.
+
+DT_UT_DOSE: Data da última dose da vacina contra a gripe.
+
+DT_VAC_MAE: Data da vacina da mãe, se o paciente tiver menos de 6 meses.
+
+ESTRANG: Informa se o paciente é estrangeiro.
+
+EVOLUCAO: Evolução do caso.
+
+FAB_COV1: Fabricante da vacina, que o paciente recebeu na primeira dose da vacina COVID-19.
+
+FAB_COV2: Fabricante da vacina, que o paciente recebeu na segunda dose da vacina COVID-19.
+
+FAB_COVRF: Fabricante da vacina, que o paciente recebeu na dose reforço da vacina COVID-19.
+
+FAB_COVRF2: Fabricante da vacina, que o paciente recebeu na 2ª dose reforço da vacina COVID-19.
+
+FADIGA: Indica se o paciente apresentou fadiga.
+
+FATOR_RISC: Indica se o paciente apresenta algum fator de risco.
+
+FEBRE: Indica se o paciente apresentou febre.
+
+FNT_IN_COV: Fonte dos dados/informação sobre a vacina COVID-19, se foi digitada manualmente ou recuperada via integração com a Base Nacional de Vacinação.
+
+FLUASU_OUT: Outro subtipo para Influenza A, no exame RT-PCR.
+
+FLUBLI_OUT: Outra linhagem para Influenza B no exame RT-PCR.
+
+GARGANTA: Indica se o paciente apresentou dor de garganta.
+
+HEMATOLOGI: Indica se o paciente possui Doença Hematológica Crônica.
+
+HEPATICA: Indica se o paciente possui Doença Hepática Crônica.
+
+HOSPITAL: Indica se o paciente foi internado.
+
+ID_MN_INTE: Município de internação do paciente.
+
+ID_MN_RESI: Município de residência do paciente.
+
+ID_MUNICIP: Código do município onde está localizada a unidade que realizou a notificação.
+
+ID_PAIS: País de residência do paciente.
+
+ID_REGIONA: Regional de Saúde onde está localizado o município que realizou a notificação.
+
+ID_RG_INTE: Regional de Saúde de Internação do paciente.
+
+ID_RG_RESI: Regional de Saúde do município de residência do paciente.
+
+ID_UNIDADE: Código da Unidade que realizou o atendimento, coleta de amostra e registro do caso.
+
+ID_UN_INTE: Unidade de Saúde de internação do paciente.
+
+IMUNODEPRE: Indica se o paciente possui Imunodeficiência ou Imunodepressão.
+
+LAB_AN: Laboratório responsável pela liberação do resultado do teste antigênico.
+
+LAB_PCR: Laboratório responsável pela liberação do resultado do teste de RT-PCR.
+
+LOTE_1_COV: Lote da 1ª dose da vacina COVID-19, que o paciente recebeu.
+
+LOTE_2_COV: Lote da 2ª dose da vacina COVID-19, que o paciente recebeu.
+
+LOTE_REF: Lote da dose reforço da vacina COVID-19, que o paciente recebeu.
+
+LOTE_REF2: Lote da 2ª dose reforço da vacina COVID-19, que o paciente recebeu.
+
+M_AMAMENTA: Indica se a mãe amamenta o paciente (se menor de 6 meses).
+
+MAE_VAC: Indica se o paciente, com menos de 6 meses, teve a mãe vacinada.
+
+MORB_DESC: Lista outros fatores de risco do paciente.
+
+NM_BAIRRO: Bairro de residência do paciente.
+
+NM_COMPLEM: Complemento do logradouro (bloco, apto, casa, etc.) do paciente.
+
+NM_LOGRADO: Logradouro (rua, avenida, etc.) do endereço de residência do paciente.
+
+NM_MAE_PAC: Nome completo da mãe do paciente, sem abreviações.
+
+NM_PACIENT: Nome completo do paciente, sem abreviações.
+
+NOME_PROF: Nome completo do profissional de saúde (sem abreviações) responsável pela notificação.
+
+NOSOCOMIAL: Indica se o caso é de SRAG com infecção adquirida após internação.
+
+NU_CEP: CEP de residência do paciente.
+
+NU_CNS: Número do Cartão Nacional de Saúde do paciente.
+
+NU_CPF: Número do Cadastro de Pessoa Física (CPF) do paciente notificado.
+
+NU_DDD_TEL: Código DDD e número de telefone para contato do paciente.
+
+NU_DO: Número da Declaração de Óbito.
+
+NU_IDADE_N: Idade informada pelo paciente ou, na sua ausência, idade aparente registrada.
+
+NU_NOTIFIC: Número sequencial gerado automaticamente pelo sistema.
+
+NU_NUMERO: Nº do logradouro (nº da casa ou do edifício) do paciente.
+
+NU_TELEFON: Código DDD e número de telefone para contato do paciente.
+
+OBESIDADE: Indica se o paciente possui obesidade.
+
+OBES_IMC: Valor do IMC (Índice de Massa Corporal) do paciente.
+
+OBSERVA: Outras observações sobre o paciente consideradas pertinentes.
+
+OUT_AMOST: Descrição do tipo da amostra clínica, caso diferente das listadas nas categorias do campo Tipo de amostra.
+
+OUT_ANIM: Informa o animal que o paciente teve contato se selecionado a opção 3 no campo "Paciente trabalha ou tem contato direto com aves, suínos, ou outro animal (especificar)".
+
+OUT_ANTIV: Se o antiviral utilizado não foi Oseltamivir ou Zanamivir, informar qual antiviral foi utilizado.
+
+OUT_MORBI: Indica se o paciente possui outros fatores de risco.
+
+OUT_SOR: Descrição do tipo de Teste Sorológico.
+
+OUT_TRAT: Se o antiviral utilizado não foi, 1-Nirmatrelvir/ritonavir(Paxlovid®), 2- Molnupiravir (Lagevrio®), 3-Baricitinibe (Olumiant®), informar qual antiviral foi utilizado.
+
+OUTRO_DES: Lista de outros sintomas apresentados pelo paciente.
+
+OUTRO_SIN: Indica se o paciente apresentou outros sintomas.
+
+PAC_COCBO: Ocupação profissional do paciente.
+
+PAC_DSCBO: Ocupação profissional do paciente.
+
+PCR_ADENO: Resultado diagnóstico do RT-PCR para Adenovírus.
+
+PCR_BOCA: Resultado diagnóstico do RT-PCR para Bocavírus.
+
+PCR_FLUASU: Subtipo para Influenza A no exame RT-PCR.
+
+PCR_FLUBLI: Linhagem para Influenza B no exame RT-PCR.
+
+PCR_METAP: Resultado diagnóstico do RT-PCR para Metapneumovírus.
+
+PCR_OUTRO: Resultado diagnóstico do RT-PCR para Outro vírus respiratório.
+
+PCR_PARA1: Resultado diagnóstico do RT-PCR para Parainfluenza 1.
+
+PCR_PARA2: Resultado diagnóstico do RT-PCR para Parainfluenza 2.
+
+PCR_PARA3: Resultado diagnóstico do RT-PCR para Parainfluenza 3.
+
+PCR_PARA4: Resultado diagnóstico do RT-PCR para Parainfluenza 4.
+
+PCR_RESUL: Resultado do teste de RT-PCR/outro método por Biologia Molecular.
+
+PCR_RINO: Resultado diagnóstico do RT-PCR para Rinovírus.
+
+PCR_SARS2: Resultado diagnóstico do RT-PCR para (SARS-CoV-2).
+
+PCR_VSR: Resultado diagnóstico do RT-PCR para (VSR).
+
+PERD_OLFT: Indica se o paciente apresentou perda do olfato.
+
+PERD_PALA: Indica se o paciente apresentou perda do paladar.
+
+PNEUMOPATI: Indica se o paciente possui outra pneumopatia crônica.
+
+POS_AN_FLU: Resultado do Teste Antigênico que foi positivo para Influenza.
+
+POS_AN_OUT: Resultado do Teste Antigênico, que foi positivo para outro vírus respiratório.
+
+POS_PCRFLU: Resultado da RT-PCR foi positivo para Influenza.
+
+POS_PCROUT: Resultado da RT-PCR foi positivo para outro vírus respiratório.
+
+POV_CT: Indica se o paciente for membro de algum povo ou comunidade tradicional.
+
+PUERPERA: Indica se a paciente é puérpera ou parturiente.
+
+RAIOX_OUT: Resultado do Raio X de Tórax se selecionado a opção 5-Outro.
+
+RAIOX_RES: Resultado do Raio X de Tórax.
+
+REG_PROF: Número do conselho ou matrícula do profissional de saúde responsável pela notificação.
+
+RENAL: Indica se o paciente possui Doença Renal Crônica.
+
+REQUI_GAL: Número da requisição de exames gerado pelo sistema GAL.
+
+RES_AN: Resultado do Teste Antigênico.
+
+RES_IGA: Resultado da Sorologia para SARS-CoV-2 - IgA.
+
+RES_IGG: Resultado da Sorologia para SARS-CoV-2 - IgG.
+
+RES_IGM: Resultado da Sorologia para SARS-CoV-2 - IgM.
+
+SATURACAO: Indica se o paciente apresentou saturação O2<95%.
+
+SEM_NOT: Semana Epidemiológica do preenchimento da ficha de notificação, calculada a partir da data dos Primeiros Sintomas (SS).
+
+SEM_PRI: Semana Epidemiológica do início dos sintomas, calculada a partir da data dos Primeiros Sintomas (SS).
+
+SG_UF: Unidade Federativa de residência do paciente.
+
+SG_UF_INTE: Unidade Federativa de internação do paciente.
+
+SG_UF_NOT: Unidade Federativa onde está localizada a unidade que realizou a notificação.
+
+SIND_DOWN: Indica se o paciente possui Síndrome de Down.
+
+SOR_OUT: Outro tipo de amostra Sorológica.
+
+SUPORT_VEN: Indica se o paciente fez uso de suporte ventilatório.
+
+TEM_CPF: Indica se o paciente notificado tem o Número do Cadastro de Pessoa Física (CPF).
+
+TIPO_TRAT: Se foi feito uso de antiviral para tratamento de covid-19, informar qual, conforme relação disponível.
+
+TOMO_OUT: Informa resultado da tomografia, caso a resposta seja Outro.
+
+TOMO_RES: Resultado da tomografia.
+
+TOSSE: Indica se o paciente apresentou tosse.
+
+TP_AM_SOR: Tipo de amostra sorológica que foi coletada.
+
+TP_AMOSTRA: Tipo da amostra clínica coletada para o teste diagnóstico.
+
+TP_ANTIVIR: Qual antiviral utilizado.
+
+TP_FLU_AN: Resultado do Teste Antigênico, para o tipo de Influenza.
+
+TP_FLU_PCR: Resultado diagnóstico do RT-PCR para o tipo de Influenza.
+
+TP_IDADE: Tipo de idade: Dia, Mês ou Ano.
+
+TP_POV_CT: Informa qual o povo ou comunidade tradicional que o paciente pertence.
+
+TP_SOR: Tipo do Teste Sorológico que foi realizado
+
+TP_TES_AN: Tipo do teste antigênico que foi realizado.
+
+TRAT_COV: Indica se fez uso de antiviral para tratamento de covid-19.
+
+UTI: Indica se o paciente foi internado em UTI.
+
+VACINA: Indica se o paciente foi vacinado contra gripe na última campanha.
+
+VACINA_COV: Indica se o paciente recebeu a vacina COVID-19.
+
+VOMITO: Indica se o paciente apresentou vômito.
