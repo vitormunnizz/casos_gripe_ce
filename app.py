@@ -141,11 +141,11 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Município', color='lightgrey')
-        ax.set_ylabel('Quantidade de Casos', color='lightgrey')
-        ax.set_xticklabels(municipios_count.index, rotation=20, color='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+        ax.set_xlabel('Município', color='grey')
+        ax.set_ylabel('Quantidade de Casos', color='grey')
+        ax.set_xticklabels(municipios_count.index, rotation=20, color='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -189,13 +189,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de Casos', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de Casos', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Sexo', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -209,13 +209,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de Casos', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de Casos', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Faixa Etária', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -306,13 +306,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de Teste de RT-PCR', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de Teste de RT-PCR', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Resultado do Teste de RT-PCR', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -336,13 +336,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de Teste de Antigênico', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de Teste de Antigênico', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Resultado do Teste de Antigênico', frameon=False,
-                  fontsize=12, title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  fontsize=12, title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -401,13 +401,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de Cura, Óbito...', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de Cura, Óbito...', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Desfechos Clínicos', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -493,13 +493,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de hospitalização', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de hospitalização', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Taxa de hospitalização', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -523,13 +523,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade de hospitalização em UTI', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade de hospitalização em UTI', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Taxa de hospitalização em UTI', frameon=False,
-                  fontsize=12, title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  fontsize=12, title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -611,13 +611,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade Pessoas Vacidas', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade Pessoas Vacidas', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Vacinação', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -641,13 +641,13 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Local da Residência (Cidade)', color='lightgrey')
-        ax.set_ylabel('Quantidade Pessoas Vacidas contra COVID', color='lightgrey')
-        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='lightgrey')
+        ax.set_xlabel('Local da Residência (Cidade)', color='grey')
+        ax.set_ylabel('Quantidade Pessoas Vacidas contra COVID', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Vacinação contra COVID', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                  title_fontsize='13', loc='upper right', labelcolor='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -739,12 +739,12 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Município', color='lightgrey')
-        ax.set_ylabel('Diferença de Dias', color='lightgrey')
+        ax.set_xlabel('Município', color='grey')
+        ax.set_ylabel('Diferença de Dias', color='grey')
         ax.set_xticklabels(diferenca_NOTIFIC_SIN_PRI.index,
-                           rotation=20, color='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                           rotation=20, color='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
@@ -767,12 +767,12 @@ try:
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
 
-        ax.set_xlabel('Município', color='lightgrey')
-        ax.set_ylabel('Diferença de Dias', color='lightgrey')
+        ax.set_xlabel('Município', color='grey')
+        ax.set_ylabel('Diferença de Dias', color='grey')
         ax.set_xticklabels(diferenca_NOTIFIC_SIN_PRI.index,
-                           rotation=20, color='lightgrey')
-        ax.tick_params(axis='x', colors='lightgrey')
-        ax.tick_params(axis='y', colors='lightgrey')
+                           rotation=20, color='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
 
         st.pyplot(fig)
 
