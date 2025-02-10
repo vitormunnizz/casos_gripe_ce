@@ -89,7 +89,7 @@ try:
     # Título do Painel
     st.title("Painel de Indicadores")
 
-    if st.checkbox("Exibir Indicadores Epidemiológicos"):
+    if st.checkbox("Exibir Indicadores Epidemiológicos - 2024"):
 
         # Lista de Colunas a Manter para Epidemiológicos
         colunas_para_manter = [
@@ -220,7 +220,7 @@ try:
         st.pyplot(fig)
 
 
-    if st.checkbox("Exibir Indicadores Vigilância Laboratorial"):
+    if st.checkbox("Exibir Indicadores Vigilância Laboratorial - 2024"):
 
         # Lista de colunas a manter para Vigilância Laboratorial
         colunas_para_manter = [
@@ -357,7 +357,7 @@ try:
         """)
 
     # Filtro de "Mortalidade"
-    if st.checkbox("Exibir Indicadores de Mortalidade"):
+    if st.checkbox("Exibir Indicadores de Mortalidade - 2024"):
 
         # Lista de colunas a manter para Mortalidade
         colunas_para_manter = [
@@ -424,7 +424,7 @@ try:
         """)
 
     # Filtro de "Clínicos e Assistenciais"
-    if st.checkbox("Exibir Indicadores de Hospitalização e UTI"):
+    if st.checkbox("Exibir Indicadores de Hospitalização e UTI - 2024"):
 
         # Lista de colunas a manter para Clínicos e Assistenciais
         colunas_para_manter = [
@@ -543,7 +543,7 @@ try:
         O Município de {municipio_MORRINHOS_uti} teve {resultado_MORRINHOS_uti} Hospitalização em UTI.        
         """)
 
-    if st.checkbox("Exibir Indicadores de Vacinação e Tempo de Resposta"):
+    if st.checkbox("Exibir Indicadores de Vacinação e Tempo de Resposta - 2024"):
 
         # Lista de colunas a manter para Clínicos e Assistenciais
         colunas_para_manter = [
