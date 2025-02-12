@@ -103,6 +103,7 @@ try:
         municipios_count = df_filtrado_Epidemiologicos['ID_MN_RESI'].value_counts(
         )
 
+
         municipio_CRUZ = municipios_count.index[0] 
         ocorrencia_CRUZ = municipios_count.iloc[0]  
 
@@ -136,7 +137,7 @@ try:
 
         # Criando o gráfico (Casos de Gripe por Município)
         fig, ax = plt.subplots(figsize=(12, 6))
-        municipios_count.plot(kind='bar', color='#377eb8', ax=ax)
+        bars = municipios_count.plot(kind='bar', color='#377eb8', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
@@ -146,6 +147,10 @@ try:
         ax.set_xticklabels(municipios_count.index, rotation=20, color='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -160,7 +165,7 @@ try:
         """)
 
         # Calculando a Taxa de incidência por habitantes
-        municipios = ['BELA CRUZ', 'CRUZ', 'ACARAU', 'ITAREMA', 'JIJOCA', 'MARCO', 'MORRINHOS']
+        municipios = ['ACARAU', 'BELA CRUZ', 'CRUZ', 'ITAREMA', 'JIJOCA', 'MARCO', 'MORRINHOS']
         incid_hab = [round((ocorrencia_ACARAU / 64806) * 100000, 2),
              round((ocorrencia_BELACRUZ / 32775) * 100000, 2),
              round((ocorrencia_CRUZ / 29761) * 100000, 2),
@@ -183,8 +188,8 @@ try:
 
         # Criando gráfico (Casos de Gripe por Sexo e Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_Epidemiologicos,
-                      x='ID_MN_RESI', hue='CS_SEXO', palette='Set1', ax=ax)
+        bars = sns.countplot(data=df_filtrado_Epidemiologicos,
+                            x='ID_MN_RESI', hue='CS_SEXO', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
@@ -193,9 +198,13 @@ try:
         ax.set_ylabel('Quantidade de Casos', color='grey')
         ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
         ax.legend(title='Sexo', frameon=False, fontsize=12,
-                  title_fontsize='13', loc='upper right', labelcolor='grey')
+                title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -203,7 +212,7 @@ try:
 
         # Criando o gráfico (Casos de Gripe por Faixa Etária e Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_Epidemiologicos,
+        bars = sns.countplot(data=df_filtrado_Epidemiologicos,
                       x='ID_MN_RESI', hue='FAIXA_ETARIA', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -216,6 +225,10 @@ try:
                   title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -300,7 +313,7 @@ try:
 
         # Criando gráfico (Resultado do Teste de RT-PCR por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vig_lab,
+        bars = sns.countplot(data=df_filtrado_vig_lab,
                       x='ID_MN_RESI', hue='PCR_RESUL', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -313,6 +326,10 @@ try:
                   title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -330,7 +347,7 @@ try:
 
         # Criando gráfico (Resultado do Teste Antigênico por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vig_lab,
+        bars = sns.countplot(data=df_filtrado_vig_lab,
                       x='ID_MN_RESI', hue='RES_AN', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -343,6 +360,10 @@ try:
                   fontsize=12, title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -395,7 +416,7 @@ try:
 
         # Criando gráfico (Desfechos Clínicos por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_mortalidade,
+        bars = sns.countplot(data=df_filtrado_mortalidade,
                       x='ID_MN_RESI', hue='EVOLUCAO', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -408,6 +429,10 @@ try:
                   title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -487,7 +512,7 @@ try:
 
         # Criando gráfico (Taxa de hospitalização por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_clinico_assistencia,
+        bars = sns.countplot(data=df_filtrado_clinico_assistencia,
                       x='ID_MN_RESI', hue='HOSPITAL', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -500,6 +525,10 @@ try:
                   title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -517,7 +546,7 @@ try:
 
         # Criando gráfico (Taxa de hospitalização em UTI por Local da Residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_clinico_assistencia,
+        bars = sns.countplot(data=df_filtrado_clinico_assistencia,
                       x='ID_MN_RESI', hue='UTI', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -530,6 +559,10 @@ try:
                   fontsize=12, title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -600,12 +633,11 @@ try:
         municipio_MARCO_vacina_COV = vacina_COV.index[5]  
         resultado_MARCO_vacina_COV = vacina_COV.iloc[5]  
 
-
         st.write('Vacinação por local da residência')
 
         # Criando gráfico (Vacinação por local da residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vacinacao_resposta,
+        bars = sns.countplot(data=df_filtrado_vacinacao_resposta,
                       x='ID_MN_RESI', hue='VACINA', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -618,6 +650,10 @@ try:
                   title_fontsize='13', loc='upper right', labelcolor='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -635,7 +671,7 @@ try:
 
         # Criando o gráfico (Vacinação de COVID por local da residência)
         fig, ax = plt.subplots(figsize=(12, 6))
-        sns.countplot(data=df_filtrado_vacinacao_resposta,
+        bars = sns.countplot(data=df_filtrado_vacinacao_resposta,
                       x='ID_MN_RESI', hue='VACINA_COV', palette='Set1', ax=ax)
 
         fig.patch.set_alpha(0)
@@ -649,8 +685,11 @@ try:
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
 
-        st.pyplot(fig)
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
+        st.pyplot(fig)
 
         st.write(f"""
         O Município de {municipio_ACARAU_vacina_COV} teve {resultado_ACARAU_vacina_COV} Aplicações da Vacina de COVID.        
@@ -734,7 +773,7 @@ try:
 
         # Criando o gráfico (Tempo Médio de Sintomas até a Notificação)
         fig, ax = plt.subplots(figsize=(12, 6))
-        diferenca_NOTIFIC_SIN_PRI.plot(kind='bar', color='#377eb8', ax=ax)
+        bars = diferenca_NOTIFIC_SIN_PRI.plot(kind='bar', color='#377eb8', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
@@ -745,6 +784,10 @@ try:
                            rotation=20, color='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
@@ -762,7 +805,7 @@ try:
 
         # Criando o gráfico (Tempo Médio de Sintomas até a Notificação)
         fig, ax = plt.subplots(figsize=(12, 6))
-        diferenca_coleta_PCR.plot(kind='bar', color='#377eb8', ax=ax)
+        bars = diferenca_coleta_PCR.plot(kind='bar', color='#377eb8', ax=ax)
 
         fig.patch.set_alpha(0)
         ax.set_facecolor('none')
@@ -773,6 +816,10 @@ try:
                            rotation=20, color='grey')
         ax.tick_params(axis='x', colors='grey')
         ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
 
         st.pyplot(fig)
 
