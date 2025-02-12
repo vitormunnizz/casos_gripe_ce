@@ -93,8 +93,7 @@ try:
 
         # Lista de Colunas a Manter para Epidemiológicos
         colunas_para_manter = [
-            'ID_MUNICIP', 'CLASSI_FIN', 'CRITERIO', 'NU_IDADE_N', 'CS_SEXO',
-            'VACINA', 'VACINA_COV', 'SEM_PRI', 'ID_MN_RESI'
+            'CLASSI_FIN', 'CRITERIO', 'NU_IDADE_N', 'CS_SEXO', 'SEM_PRI', 'ID_MN_RESI'
         ]
 
         df_filtrado_Epidemiologicos = df_filtrado_regional[colunas_para_manter]
@@ -102,7 +101,6 @@ try:
         # Contar as ocorrências de cada valor em 'ID_MUNICIP'
         municipios_count = df_filtrado_Epidemiologicos['ID_MN_RESI'].value_counts(
         )
-
 
         municipio_CRUZ = municipios_count.index[0] 
         ocorrencia_CRUZ = municipios_count.iloc[0]  
@@ -133,6 +131,7 @@ try:
         df_filtrado_Epidemiologicos['FAIXA_ETARIA'] = pd.cut(
             df_filtrado_Epidemiologicos['NU_IDADE_N'], bins=bins, labels=labels)
 
+        
         st.write('Casos de Síndrome Respiratória Aguda Grave por Município')
 
         # Criando o gráfico (Casos de Gripe por Município)
@@ -232,6 +231,31 @@ try:
 
         st.pyplot(fig)
 
+        st.write('Casos por Semana Epidemiológica Geral (1 até 52)')
+
+        # Exemplo de como pode ser feito, agrupando os dados pela semana epidemiológica
+        df_filtrado_Semana_Epidemiologicos_geral = df_filtrado_Epidemiologicos.groupby('SEM_PRI').size().reset_index(name='quant_casos')
+
+        # Plotando o gráfico geral
+        fig, ax = plt.subplots(figsize=(12, 6))
+        bars = sns.barplot(x='SEM_PRI', y='quant_casos', data=df_filtrado_Semana_Epidemiologicos_geral, palette='Set1', ax=ax, width=1.0)
+
+        # Estilização do gráfico
+        fig.patch.set_alpha(0)
+        ax.set_facecolor('none')
+
+        ax.set_xlabel('Semana Epidemiológica', color='grey')
+        ax.set_ylabel('Quantidade de Casos', color='grey')
+        ax.set_xticklabels(ax.get_xticklabels(), rotation=20, color='grey')
+        ax.tick_params(axis='x', colors='grey')
+        ax.tick_params(axis='y', colors='grey')
+
+        # Adicionando rótulos nas barras
+        for container in bars.containers:
+            ax.bar_label(container, color='grey')
+        
+        st.pyplot(fig)
+        
 
     if st.checkbox("Exibir Indicadores Vigilância Laboratorial - 2024"):
 
