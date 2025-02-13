@@ -484,54 +484,87 @@ try:
 
         # Contando a quantidade de hospitalização
         hospitalizacao = df_filtrado_clinico_assistencia[df_filtrado_clinico_assistencia['HOSPITAL'] == "Sim"].groupby('ID_MN_RESI')['HOSPITAL'].count()
+        total_casos_hospitalizacao = df_filtrado_clinico_assistencia.groupby('ID_MN_RESI')['HOSPITAL'].count()
+        
         # Contando a quantidade de hospitalização em UTI
         uti = df_filtrado_clinico_assistencia[df_filtrado_clinico_assistencia['UTI'] == "Sim"].groupby('ID_MN_RESI')['UTI'].count()
-        
+        total_casos_uti = df_filtrado_clinico_assistencia.groupby('ID_MN_RESI')['UTI'].count()
+    
+
         # Extraindo os índices e resultados
         municipio_CRUZ_hospitalizacao = hospitalizacao.index[2] 
         resultado_CRUZ_hospitalizacao = hospitalizacao.iloc[2]  
+        resultado_CRUZ_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[2]  
 
         municipio_BELACRUZ_hospitalizacao = hospitalizacao.index[1]  
         resultado_BELACRUZ_hospitalizacao = hospitalizacao.iloc[1]  
+        resultado_BELACRUZ_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[1]  
 
         municipio_ITAREMA_hospitalizacao = hospitalizacao.index[3]  
         resultado_ITAREMA_hospitalizacao = hospitalizacao.iloc[3]   
+        resultado_ITAREMA_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[3]
 
         municipio_ACARAU_hospitalizacao = hospitalizacao.index[0] 
         resultado_ACARAU_hospitalizacao = hospitalizacao.iloc[0] 
+        resultado_ACARAU_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[0]
 
         municipio_MORRINHOS_hospitalizacao = hospitalizacao.index[6]  
-        resultado_MORRINHOS_hospitalizacao = hospitalizacao.iloc[6]  
+        resultado_MORRINHOS_hospitalizacao = hospitalizacao.iloc[6]
+        resultado_MORRINHOS_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[6]  
 
         municipio_JIJOCA_hospitalizacao = hospitalizacao.index[4]  
         resultado_JIJOCA_hospitalizacao = hospitalizacao.iloc[4] 
+        resultado_JIJOCA_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[4] 
 
         municipio_MARCO_hospitalizacao = hospitalizacao.index[5]  
         resultado_MARCO_hospitalizacao = hospitalizacao.iloc[5]  
+        resultado_MARCO_total_casos_hospitalizacao = total_casos_hospitalizacao.iloc[5]  
         
         # Extraindo os índices e resultados
         municipio_CRUZ_uti = uti.index[2] 
-        resultado_CRUZ_uti = uti.iloc[2]  
+        resultado_CRUZ_uti = uti.iloc[2]
+        resultado_CRUZ_total_casos_uti = total_casos_uti.iloc[2]  
 
         municipio_BELACRUZ_uti = uti.index[1]  
         resultado_BELACRUZ_uti = uti.iloc[1]  
+        resultado_BELACRUZ_total_casos_uti = total_casos_uti.iloc[1]
 
         municipio_ITAREMA_uti = uti.index[3]  
         resultado_ITAREMA_uti = uti.iloc[3]   
+        resultado_ITAREMA_total_casos_uti = total_casos_uti.iloc[3]   
 
         municipio_ACARAU_uti = uti.index[0] 
         resultado_ACARAU_uti = uti.iloc[0] 
+        resultado_ACARAU_total_casos_uti = total_casos_uti.iloc[0] 
 
         municipio_MORRINHOS_uti = uti.index[6]  
-        resultado_MORRINHOS_uti = uti.iloc[6]  
+        resultado_MORRINHOS_uti = uti.iloc[6]   
+        resultado_MORRINHOS_total_casos_uti = total_casos_uti.iloc[6]  
 
         municipio_JIJOCA_uti = uti.index[4]  
         resultado_JIJOCA_uti = uti.iloc[4] 
+        resultado_JIJOCA_total_casos_uti = total_casos_uti.iloc[4] 
 
         municipio_MARCO_uti = uti.index[5]  
-        resultado_MARCO_uti = uti.iloc[5]  
+        resultado_MARCO_uti = uti.iloc[5]   
+        resultado_MARCO_total_casos_uti = total_casos_uti.iloc[5]  
   
+        percentual_ACARAU_hospitalizacao = round(((resultado_ACARAU_hospitalizacao / resultado_ACARAU_total_casos_hospitalizacao) * 100), 2)
+        percentual_CRUZ_hospitalizacao = round(((resultado_CRUZ_hospitalizacao / resultado_CRUZ_total_casos_hospitalizacao) * 100), 2)
+        percentual_ITAREMA_hospitalizacao = round(((resultado_ITAREMA_hospitalizacao / resultado_ITAREMA_total_casos_hospitalizacao) * 100), 2)
+        percentual_BELACRUZ_hospitalizacao = round(((resultado_BELACRUZ_hospitalizacao / resultado_BELACRUZ_total_casos_hospitalizacao) * 100), 2)
+        percentual_MORRINHOS_hospitalizacao = round(((resultado_MORRINHOS_hospitalizacao / resultado_MORRINHOS_total_casos_hospitalizacao) * 100), 2)
+        percentual_MARCO_hospitalizacao = round(((resultado_MARCO_hospitalizacao / resultado_MARCO_total_casos_hospitalizacao) * 100), 2)
+        percentual_JIJOCA_hospitalizacao = round(((resultado_JIJOCA_hospitalizacao / resultado_JIJOCA_total_casos_hospitalizacao) * 100), 2)
 
+        percentual_ACARAU_uti = round(((resultado_ACARAU_uti / resultado_ACARAU_total_casos_uti) * 100), 2)
+        percentual_CRUZ_uti = round(((resultado_CRUZ_uti / resultado_CRUZ_total_casos_uti) * 100), 2)
+        percentual_ITAREMA_uti = round(((resultado_ITAREMA_uti / resultado_ITAREMA_total_casos_uti) * 100), 2)
+        percentual_BELACRUZ_uti = round(((resultado_BELACRUZ_uti / resultado_BELACRUZ_total_casos_uti) * 100), 2)
+        percentual_MORRINHOS_uti = round(((resultado_MORRINHOS_uti / resultado_MORRINHOS_total_casos_uti) * 100), 2)
+        percentual_MARCO_uti = round(((resultado_MARCO_uti / resultado_MARCO_total_casos_uti) * 100), 2)
+        percentual_JIJOCA_uti = round(((resultado_JIJOCA_uti / resultado_JIJOCA_total_casos_uti) * 100), 2)
+        
         st.write('Taxa de hospitalização por Ocorrência de Complicações por Local da Residência')
 
         # Criando gráfico (Taxa de hospitalização por Local da Residência)
@@ -557,13 +590,13 @@ try:
         st.pyplot(fig)
 
         st.write(f"""
-        O Município de {municipio_ACARAU_hospitalizacao} teve {resultado_ACARAU_hospitalizacao} Hospitalização.        
-        O Município de {municipio_BELACRUZ_hospitalizacao} teve {resultado_BELACRUZ_hospitalizacao} Hospitalização.       
-        O Município de {municipio_CRUZ_hospitalizacao} teve {resultado_CRUZ_hospitalizacao} Hospitalização.         
-        O Município de {municipio_ITAREMA_hospitalizacao} teve {resultado_ITAREMA_hospitalizacao} Hospitalização.      
-        O Município de {municipio_JIJOCA_hospitalizacao} teve {resultado_JIJOCA_hospitalizacao} Hospitalização.  
-        O Município de {municipio_MARCO_hospitalizacao} teve {resultado_MARCO_hospitalizacao} Hospitalização.           
-        O Município de {municipio_MORRINHOS_hospitalizacao} teve {resultado_MORRINHOS_hospitalizacao} Hospitalização.       
+        O Município de {municipio_ACARAU_hospitalizacao} teve {resultado_ACARAU_hospitalizacao} Hospitalização, esses números representam {percentual_ACARAU_hospitalizacao}% do total de pacientes.                   
+        O Município de {municipio_BELACRUZ_hospitalizacao} teve {resultado_BELACRUZ_hospitalizacao} Hospitalização, esses números representam {percentual_BELACRUZ_hospitalizacao}% do total de pacientes.                   
+        O Município de {municipio_CRUZ_hospitalizacao} teve {resultado_CRUZ_hospitalizacao} Hospitalização, esses números representam {percentual_CRUZ_hospitalizacao}% do total de pacientes.                     
+        O Município de {municipio_ITAREMA_hospitalizacao} teve {resultado_ITAREMA_hospitalizacao} Hospitalização, esses números representam {percentual_ITAREMA_hospitalizacao}% do total de pacientes.          
+        O Município de {municipio_JIJOCA_hospitalizacao} teve {resultado_JIJOCA_hospitalizacao} Hospitalização, esses números representam {percentual_JIJOCA_hospitalizacao}% do total de pacientes.              
+        O Município de {municipio_MARCO_hospitalizacao} teve {resultado_MARCO_hospitalizacao} Hospitalização, esses números representam {percentual_MARCO_hospitalizacao}% do total de pacientes.          
+        O Município de {municipio_MORRINHOS_hospitalizacao} teve {resultado_MORRINHOS_hospitalizacao} Hospitalização, esses números representam {percentual_MORRINHOS_hospitalizacao}% do total de pacientes.          
         """)
 
         st.write('Taxa de hospitalização em UTI por Ocorrência de Complicações por Local da Residência')
@@ -591,13 +624,13 @@ try:
         st.pyplot(fig)
 
         st.write(f"""
-        O Município de {municipio_ACARAU_uti} teve {resultado_ACARAU_uti} Hospitalização em UTI.        
-        O Município de {municipio_BELACRUZ_uti} teve {resultado_BELACRUZ_uti} Hospitalização em UTI.       
-        O Município de {municipio_CRUZ_uti} teve {resultado_CRUZ_uti} Hospitalização em UTI.         
-        O Município de {municipio_ITAREMA_uti} teve {resultado_ITAREMA_uti} Hospitalização em UTI.      
-        O Município de {municipio_JIJOCA_uti} teve {resultado_JIJOCA_uti} Hospitalização em UTI.  
-        O Município de {municipio_MARCO_uti} teve {resultado_MARCO_uti} Hospitalização em UTI.           
-        O Município de {municipio_MORRINHOS_uti} teve {resultado_MORRINHOS_uti} Hospitalização em UTI.        
+        O Município de {municipio_ACARAU_uti} teve {resultado_ACARAU_uti} Hospitalização em UTI, esses números representam {percentual_ACARAU_uti}% do total de pacientes.                   
+        O Município de {municipio_BELACRUZ_uti} teve {resultado_BELACRUZ_uti} Hospitalização em UTI, esses números representam {percentual_BELACRUZ_uti}% do total de pacientes.                      
+        O Município de {municipio_CRUZ_uti} teve {resultado_CRUZ_uti} Hospitalização em UTI, esses números representam {percentual_CRUZ_uti}% do total de pacientes.                   
+        O Município de {municipio_ITAREMA_uti} teve {resultado_ITAREMA_uti} Hospitalização em UTI, esses números representam {percentual_ITAREMA_uti}% do total de pacientes.               
+        O Município de {municipio_JIJOCA_uti} teve {resultado_JIJOCA_uti} Hospitalização em UTI, esses números representam {percentual_JIJOCA_uti}% do total de pacientes.         
+        O Município de {municipio_MARCO_uti} teve {resultado_MARCO_uti} Hospitalização em UTI, esses números representam {percentual_MARCO_uti}% do total de pacientes.                        
+        O Município de {municipio_MORRINHOS_uti} teve {resultado_MORRINHOS_uti} Hospitalização em UTI, esses números representam {percentual_MORRINHOS_uti}% do total de pacientes.                     
         """)
 
     if st.checkbox("Exibir Indicadores de Vacinação e Tempo de Resposta - 2024"):
@@ -612,50 +645,80 @@ try:
 
         # Contando a quantidade de pessoas vacinadas
         vacina = df_filtrado_vacinacao_resposta[df_filtrado_vacinacao_resposta['VACINA'] == "Sim"].groupby('ID_MN_RESI')['VACINA'].count()
+        total_vacina = df_filtrado_vacinacao_resposta.groupby('ID_MN_RESI')['VACINA'].count()
 
         # Contando a quantidade de pessoas vacinadas COVID
         vacina_COV = df_filtrado_vacinacao_resposta[df_filtrado_vacinacao_resposta['VACINA_COV'] == "Sim"].groupby('ID_MN_RESI')['VACINA_COV'].count()
+        total_vacina_COV = df_filtrado_vacinacao_resposta.groupby('ID_MN_RESI')['VACINA_COV'].count()
 
-        # Extraindo os índices e resultados
+        # Extraindo os índices e resultados        
         municipio_CRUZ_vacina = vacina.index[2] 
         resultado_CRUZ_vacina = vacina.iloc[2]  
+        total_casos_CRUZ_vacina = total_vacina.iloc[2]  
 
         municipio_BELACRUZ_vacina = vacina.index[1]  
         resultado_BELACRUZ_vacina = vacina.iloc[1]  
+        total_casos_BELACRUZ_vacina = total_vacina.iloc[1]  
 
         municipio_ITAREMA_vacina = vacina.index[3]  
         resultado_ITAREMA_vacina = vacina.iloc[3]   
+        total_casos_ITAREMA_vacina = total_vacina.iloc[3]   
 
         municipio_ACARAU_vacina = vacina.index[0] 
         resultado_ACARAU_vacina = vacina.iloc[0] 
+        total_casos_ACARAU_vacina = total_vacina.iloc[0] 
 
         municipio_MORRINHOS_vacina = vacina.index[5]  
         resultado_MORRINHOS_vacina = vacina.iloc[5]  
+        total_casos_MORRINHOS_vacina = total_vacina.iloc[5]  
 
         municipio_JIJOCA_vacina = vacina.index[4]  
         resultado_JIJOCA_vacina = vacina.iloc[4] 
+        total_casos_JIJOCA_vacina = total_vacina.iloc[4] 
 
         # Extraindo os índices e resultados
         municipio_CRUZ_vacina_COV = vacina_COV.index[2] 
         resultado_CRUZ_vacina_COV = vacina_COV.iloc[2]  
+        total_casos_CRUZ_vacina_COV = total_vacina_COV.iloc[2]  
 
         municipio_BELACRUZ_vacina_COV = vacina_COV.index[1]  
         resultado_BELACRUZ_vacina_COV = vacina_COV.iloc[1]  
+        total_casos_BELACRUZ_vacina_COV = total_vacina_COV.iloc[1]  
 
         municipio_ITAREMA_vacina_COV = vacina_COV.index[3]  
         resultado_ITAREMA_vacina_COV = vacina_COV.iloc[3]   
+        total_casos_ITAREMA_vacina_COV = total_vacina_COV.iloc[3]   
 
         municipio_ACARAU_vacina_COV = vacina_COV.index[0] 
         resultado_ACARAU_vacina_COV = vacina_COV.iloc[0] 
+        total_casos_ACARAU_vacina_COV = total_vacina_COV.iloc[0] 
 
         municipio_MORRINHOS_vacina_COV = vacina_COV.index[6]  
         resultado_MORRINHOS_vacina_COV = vacina_COV.iloc[6]  
+        total_casos_MORRINHOS_vacina_COV = total_vacina_COV.iloc[6]  
 
         municipio_JIJOCA_vacina_COV = vacina_COV.index[4]  
         resultado_JIJOCA_vacina_COV = vacina_COV.iloc[4] 
+        total_casos_JIJOCA_vacina_COV = total_vacina_COV.iloc[4] 
 
         municipio_MARCO_vacina_COV = vacina_COV.index[5]  
-        resultado_MARCO_vacina_COV = vacina_COV.iloc[5]  
+        resultado_MARCO_vacina_COV = vacina_COV.iloc[5]
+        total_casos_MARCO_vacina_COV = total_vacina_COV.iloc[5]
+
+        percentual_ACARAU_vacina = round(((resultado_ACARAU_vacina / total_casos_ACARAU_vacina) * 100), 2)
+        percentual_CRUZ_vacina = round(((resultado_CRUZ_vacina / total_casos_CRUZ_vacina) * 100), 2)
+        percentual_ITAREMA_vacina = round(((resultado_ITAREMA_vacina / total_casos_ITAREMA_vacina) * 100), 2)
+        percentual_BELACRUZ_vacina = round(((resultado_BELACRUZ_vacina / total_casos_BELACRUZ_vacina) * 100), 2)
+        percentual_MORRINHOS_vacina = round(((resultado_MORRINHOS_vacina / total_casos_MORRINHOS_vacina) * 100), 2)
+        percentual_JIJOCA_vacina = round(((resultado_JIJOCA_vacina / total_casos_JIJOCA_vacina) * 100), 2)
+
+        percentual_ACARAU_vacina_COV = round(((resultado_ACARAU_vacina_COV / total_casos_ACARAU_vacina_COV) * 100), 2)
+        percentual_CRUZ_vacina_COV = round(((resultado_CRUZ_vacina_COV / total_casos_CRUZ_vacina_COV) * 100), 2)
+        percentual_ITAREMA_vacina_COV = round(((resultado_ITAREMA_vacina_COV / total_casos_ITAREMA_vacina_COV) * 100), 2)
+        percentual_BELACRUZ_vacina_COV = round(((resultado_BELACRUZ_vacina_COV / total_casos_BELACRUZ_vacina_COV) * 100), 2)
+        percentual_MORRINHOS_vacina_COV = round(((resultado_MORRINHOS_vacina_COV / total_casos_MORRINHOS_vacina_COV) * 100), 2)
+        percentual_MARCO_vacina_COV = round(((resultado_MARCO_vacina_COV / total_casos_MARCO_vacina_COV) * 100), 2)
+        percentual_JIJOCA_vacina_COV = round(((resultado_JIJOCA_vacina_COV / total_casos_JIJOCA_vacina_COV) * 100), 2)
 
         st.write('Vacinação por local da residência')
 
@@ -683,13 +746,13 @@ try:
 
         st.write(f"""
 
-        O Município de {municipio_ACARAU_vacina} teve {resultado_ACARAU_vacina} Aplicações da Vacina contra SARG.        
-        O Município de {municipio_BELACRUZ_vacina} teve {resultado_BELACRUZ_vacina} Aplicações da Vacina contra SARG.       
-        O Município de {municipio_CRUZ_vacina} teve {resultado_CRUZ_vacina} Aplicações da Vacina contra SARG.         
-        O Município de {municipio_ITAREMA_vacina} teve {resultado_ITAREMA_vacina} Aplicações da Vacina contra SARG.      
-        O Município de {municipio_JIJOCA_vacina} teve {resultado_JIJOCA_vacina} Aplicações da Vacina contra SARG.  
-        O Município de MARCO teve 0 Aplicações da Vacina contra SARG.           
-        O Município de {municipio_MORRINHOS_vacina} teve {resultado_MORRINHOS_vacina} Aplicações da Vacina contra SARG.        """)
+        O Município de {municipio_ACARAU_vacina} teve {resultado_ACARAU_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_ACARAU_vacina}% do total de pacientes.        
+        O Município de {municipio_BELACRUZ_vacina} teve {resultado_BELACRUZ_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_BELACRUZ_vacina}% do total de pacientes.       
+        O Município de {municipio_CRUZ_vacina} teve {resultado_CRUZ_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_CRUZ_vacina}% do total de pacientes.         
+        O Município de {municipio_ITAREMA_vacina} teve {resultado_ITAREMA_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_ITAREMA_vacina}% do total de pacientes.      
+        O Município de {municipio_JIJOCA_vacina} teve {resultado_JIJOCA_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_JIJOCA_vacina}% do total de pacientes.  
+        O Município de MARCO teve 0 Aplicações da Vacina contra SARG, esses números representam 0% do total de pacientes.           
+        O Município de {municipio_MORRINHOS_vacina} teve {resultado_MORRINHOS_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_MORRINHOS_vacina}% do total de pacientes.        """)
 
         st.write('Vacinação de COVID por local da residência')
 
@@ -716,13 +779,13 @@ try:
         st.pyplot(fig)
 
         st.write(f"""
-        O Município de {municipio_ACARAU_vacina_COV} teve {resultado_ACARAU_vacina_COV} Aplicações da Vacina de COVID.        
-        O Município de {municipio_BELACRUZ_vacina_COV} teve {resultado_BELACRUZ_vacina_COV} Aplicações da Vacina de COVID.       
-        O Município de {municipio_CRUZ_vacina_COV} teve {resultado_CRUZ_vacina_COV} Aplicações da Vacina de COVID.         
-        O Município de {municipio_ITAREMA_vacina_COV} teve {resultado_ITAREMA_vacina_COV} Aplicações da Vacina de COVID.      
-        O Município de {municipio_JIJOCA_vacina_COV} teve {resultado_JIJOCA_vacina_COV} Aplicações da Vacina de COVID.  
-        O Município de {municipio_MARCO_vacina_COV} teve {resultado_MARCO_vacina_COV} Aplicações da Vacina de COVID.           
-        O Município de {municipio_MORRINHOS_vacina_COV} teve {resultado_MORRINHOS_vacina_COV} Aplicações da Vacina de COVID.        
+        O Município de {municipio_ACARAU_vacina_COV} teve {resultado_ACARAU_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_ACARAU_vacina_COV}% do total de pacientes.        
+        O Município de {municipio_BELACRUZ_vacina_COV} teve {resultado_BELACRUZ_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_BELACRUZ_vacina_COV}% do total de pacientes.       
+        O Município de {municipio_CRUZ_vacina_COV} teve {resultado_CRUZ_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_CRUZ_vacina_COV}% do total de pacientes.         
+        O Município de {municipio_ITAREMA_vacina_COV} teve {resultado_ITAREMA_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_ITAREMA_vacina_COV}% do total de pacientes.      
+        O Município de {municipio_JIJOCA_vacina_COV} teve {resultado_JIJOCA_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_JIJOCA_vacina_COV}% do total de pacientes.  
+        O Município de {municipio_MARCO_vacina_COV} teve {resultado_MARCO_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_MARCO_vacina_COV}% do total de pacientes.           
+        O Município de {municipio_MORRINHOS_vacina_COV} teve {resultado_MORRINHOS_vacina_COV} Aplicações da Vacina de COVID, esses números representam {percentual_MORRINHOS_vacina_COV}% do total de pacientes.        
         """)
 
 
