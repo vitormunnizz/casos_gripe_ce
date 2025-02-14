@@ -651,6 +651,10 @@ try:
         vacina_COV = df_filtrado_vacinacao_resposta[df_filtrado_vacinacao_resposta['VACINA_COV'] == "Sim"].groupby('ID_MN_RESI')['VACINA_COV'].count()
         total_vacina_COV = df_filtrado_vacinacao_resposta.groupby('ID_MN_RESI')['VACINA_COV'].count()
 
+        # Preenchendo valores faltantes com 0 para garantir que todos os municípios estejam presentes
+        vacina = vacina.reindex(total_vacina.index, fill_value=0)
+        vacina_COV = vacina_COV.reindex(total_vacina_COV.index, fill_value=0)
+
         # Extraindo os índices e resultados        
         municipio_CRUZ_vacina = vacina.index[2] 
         resultado_CRUZ_vacina = vacina.iloc[2]  
@@ -668,13 +672,17 @@ try:
         resultado_ACARAU_vacina = vacina.iloc[0] 
         total_casos_ACARAU_vacina = total_vacina.iloc[0] 
 
-        municipio_MORRINHOS_vacina = vacina.index[5]  
-        resultado_MORRINHOS_vacina = vacina.iloc[5]  
-        total_casos_MORRINHOS_vacina = total_vacina.iloc[5]  
+        municipio_MORRINHOS_vacina = vacina.index[6]  
+        resultado_MORRINHOS_vacina = vacina.iloc[6]  
+        total_casos_MORRINHOS_vacina = total_vacina.iloc[6]  
 
         municipio_JIJOCA_vacina = vacina.index[4]  
         resultado_JIJOCA_vacina = vacina.iloc[4] 
         total_casos_JIJOCA_vacina = total_vacina.iloc[4] 
+
+        municipio_MARCO_vacina = vacina.index[5]  
+        resultado_MARCO_vacina = vacina.iloc[5] 
+        total_casos_MARCO_vacina = total_vacina.iloc[5] 
 
         # Extraindo os índices e resultados
         municipio_CRUZ_vacina_COV = vacina_COV.index[2] 
@@ -711,6 +719,7 @@ try:
         percentual_BELACRUZ_vacina = round(((resultado_BELACRUZ_vacina / total_casos_BELACRUZ_vacina) * 100), 2)
         percentual_MORRINHOS_vacina = round(((resultado_MORRINHOS_vacina / total_casos_MORRINHOS_vacina) * 100), 2)
         percentual_JIJOCA_vacina = round(((resultado_JIJOCA_vacina / total_casos_JIJOCA_vacina) * 100), 2)
+        percentual_MARCO_vacina = round(((resultado_MARCO_vacina / total_casos_MARCO_vacina) * 100), 2)
 
         percentual_ACARAU_vacina_COV = round(((resultado_ACARAU_vacina_COV / total_casos_ACARAU_vacina_COV) * 100), 2)
         percentual_CRUZ_vacina_COV = round(((resultado_CRUZ_vacina_COV / total_casos_CRUZ_vacina_COV) * 100), 2)
@@ -751,7 +760,7 @@ try:
         O Município de {municipio_CRUZ_vacina} teve {resultado_CRUZ_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_CRUZ_vacina}% do total de pacientes.         
         O Município de {municipio_ITAREMA_vacina} teve {resultado_ITAREMA_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_ITAREMA_vacina}% do total de pacientes.      
         O Município de {municipio_JIJOCA_vacina} teve {resultado_JIJOCA_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_JIJOCA_vacina}% do total de pacientes.  
-        O Município de MARCO teve 0 Aplicações da Vacina contra SARG, esses números representam 0% do total de pacientes.           
+        O Município de {municipio_MARCO_vacina} teve {resultado_MARCO_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_MARCO_vacina}% do total de pacientes.           
         O Município de {municipio_MORRINHOS_vacina} teve {resultado_MORRINHOS_vacina} Aplicações da Vacina contra SARG, esses números representam {percentual_MORRINHOS_vacina}% do total de pacientes.        """)
 
         st.write('Vacinação de COVID por local da residência')
